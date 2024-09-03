@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    This Post Title
+    {{ post.title }}
 {% endblock %}
 
 {% block css_files %}
@@ -11,50 +11,18 @@
 
 {% block content %}
     <section id="summary">
-        <h2>Post Title</h2>
+        <h2>{{ post.title }}</h2>
         <article>
-            <img src="{% static "blog/images/baki.png" %}" alt="Post Title"/>
-            <address> By Ahmed</address>
+            <img src="{% static "blog/images/"|add:post.image %}" alt="{{ post.title }}"/>
+            <address> {{post.author}} </address>
             <div>
                 Last updated on
-                <time>July 12th</time>
+                <time>{{ post.date|date:"d M Y" }}</time>
             </div>
         </article>
     </section>
     <main>
-        <p>
-            Travel and Exploration: Exploring new places
-            can be one of life's most exhilarating experiences.
-            From the bustling streets of a foreign city to the
-            serene landscapes of remote mountains, every destination
-            has its unique charm. Traveling not only broadens one's horizons but also fosters a deeper appreciation for
-            diverse cultures and ways of life. Whether it's tasting local cuisines or engaging
-            with residents, every journey offers countless
-            opportunities to create unforgettable memories.
-        </p>
-        <p>
-            Technology in Everyday Life: Technology has become an integral part of our daily routines.
-            From smartphones that connect us with the world in an instant to smart home devices that automate household
-            chores,
-            technology continues to reshape our lifestyles. While it brings convenience and efficiency,
-            it also presents challenges such as data privacy and the need for digital literacy.
-            Striking a balance between embracing technological advancements and
-            maintaining personal security is crucial in today's digital age.
-        </p>
-        <p>
-            The Importance of Reading: Reading opens up a world of imagination, knowledge, and empathy.
-            Whether it's a gripping novel, an insightful non-fiction book, or a thought-provoking article,
-            reading helps us to understand different perspectives and cultures. It sharpens our minds,
-            enriches our vocabulary, and stimulates our creativity. In a fast-paced world dominated by visual media,
-            taking the time to read allows us to slow down and immerse ourselves in a world of ideas and stories.
-        </p>
-        <p>
-            The Power of Nature: Nature has a profound impact on our well-being. A walk through a forest, listening to
-            the rustling leaves and birdsong, can be incredibly rejuvenating. The fresh air, natural light, and serene
-            landscapes offer a perfect escape from the hustle and bustle of city life. Studies have shown that spending
-            time in nature reduces stress, improves mood, and enhances overall health. It's a reminder of the importance
-            of preserving our natural environments for future generations.
-        </p>
+     {{ post.content|linebreaksbr }}
 
     </main>
 
