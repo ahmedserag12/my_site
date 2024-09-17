@@ -6,7 +6,6 @@ from django.shortcuts import render
 def starting_page(request):
     sorted_posts = sorted(all_posts, key=get_date)
     latest_posts = sorted_posts[-3:]
-    print(latest_posts)
     return render(request, "blog/index.html", {
         "posts": latest_posts
     })
