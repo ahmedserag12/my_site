@@ -1,5 +1,4 @@
 from .models import Post
-from .utility import all_posts
 
 from django.shortcuts import render, get_object_or_404
 
@@ -12,7 +11,7 @@ def starting_page(request):
 
 
 def posts(request):
-    all_posts = Post.objects.all().order_by('-date')[:3]
+    all_posts = Post.objects.all().order_by('-date')
 
     return render(request, 'blog/all-posts.html', {
         "all_posts": all_posts
