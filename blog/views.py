@@ -12,7 +12,7 @@ def starting_page(request):
 
 
 def posts(request):
-    all_posts = Post.objects.all().order_by('-date')[:3]
+    all_posts = Post.objects.all().order_by('-date')
 
     return render(request, 'blog/all-posts.html', {
         "all_posts": all_posts
